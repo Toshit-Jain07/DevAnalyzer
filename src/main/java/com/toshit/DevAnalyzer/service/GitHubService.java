@@ -36,7 +36,7 @@ public class GitHubService {
             Repo[] repos = restTemplate.getForObject(url, Repo[].class);
             return Arrays.asList(repos);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to fetch repositories");
+            throw new RuntimeException("Failed to fetch repositories \n " + e.getMessage()+"\n");
         }
     }
 
