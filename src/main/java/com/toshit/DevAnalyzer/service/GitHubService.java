@@ -2,7 +2,6 @@ package com.toshit.DevAnalyzer.service;
 
 
 import com.toshit.DevAnalyzer.model.GitHubUser;
-import com.toshit.DevAnalyzer.model.Repo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,28 +29,28 @@ public class GitHubService {
         }
     }
 
-    public List<Repo> getRepo(String username){
+    public List<GitHubUser.Repo> getRepo(String username){
         String url = "https://api.github.com/users/" + username + "/repos";
         try {
-            Repo[] repos = restTemplate.getForObject(url, Repo[].class);
+            GitHubUser.Repo[] repos = restTemplate.getForObject(url, GitHubUser.Repo[].class);
             return Arrays.asList(repos);
         } catch (Exception e) {
             throw new RuntimeException("Failed to fetch repositories \n " + e.getMessage()+"\n");
         }
     }
 
-    public int getTotalStars(List<Repo> repos) {
+    public int getTotalStars(List<GitHubUser.Repo> repos) {
         if (repos.isEmpty()) return 0;
         int totalStars = 0;
 
-        for (Repo repo : repos) {
+        for (GitHubUser.Repo repo : repos) {
             totalStars += repo.getStargazers_count();
         }
 
         return totalStars;
     }
 
-    public double getAverageStars(List<Repo> repos) {
+    public double getAverageStars(List<GitHubUser.Repo> repos) {
         if (repos.isEmpty()) return 0;
 
         int totalStars = getTotalStars(repos);

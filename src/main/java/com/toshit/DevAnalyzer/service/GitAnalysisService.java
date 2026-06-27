@@ -2,27 +2,27 @@ package com.toshit.DevAnalyzer.service;
 
 import com.toshit.DevAnalyzer.dto.GitAnalysisResponse;
 import com.toshit.DevAnalyzer.model.GitHubUser;
-import com.toshit.DevAnalyzer.model.Repo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class GitAnalysisService {
+public class GitAnalysisService extends BaseAnalyzer<GitAnalysisResponse> {
 
     private final GitHubService gitHubService;
-    private final AiService aiService;
 
     public GitAnalysisService(GitHubService gitHubService,
                               AiService aiService) {
+        super(aiService);
         this.gitHubService = gitHubService;
-        this.aiService = aiService;
+
     }
 
-    public GitAnalysisResponse analyze(String username) {
+    @Override
+    public GitAnalysisResponse response(String username) {
 
         GitHubUser user = gitHubService.getUser(username);
-        List<Repo> repos = gitHubService.getRepo(username);
+        List<GitHubUser.Repo> repos = gitHubService.getRepo(username);
 
         int totalRepos = repos.size();
         int totalStars = gitHubService.getTotalStars(repos);

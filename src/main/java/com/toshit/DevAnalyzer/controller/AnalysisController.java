@@ -1,6 +1,7 @@
 package com.toshit.DevAnalyzer.controller;
 
 import com.toshit.DevAnalyzer.dto.GitAnalysisResponse;
+import com.toshit.DevAnalyzer.service.Analyzers;
 import com.toshit.DevAnalyzer.service.GitAnalysisService;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/analyze")
 public class AnalysisController {
 
-    private final GitAnalysisService gitAnalysisService;
+    private final Analyzers analyzers;
 
-    public AnalysisController(GitAnalysisService gitAnalysisService) {
-        this.gitAnalysisService = gitAnalysisService;
+    public AnalysisController(Analyzers analyzers) {
+        this.analyzers=analyzers;
     }
 
-    @GetMapping("/github/{username}")
-    public GitAnalysisResponse analyze(@PathVariable String username) {
-        return gitAnalysisService.analyze(username);
+    @GetMapping("/{platform}/{username}")
+    public Object analyze(@PathVariable String platform , @PathVariable String username) {
+        return analyzers.getAnalyzer(platform).analyze(username);
     }
 }

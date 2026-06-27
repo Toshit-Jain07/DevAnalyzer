@@ -1,7 +1,6 @@
 package com.toshit.DevAnalyzer.controller;
 
 import com.toshit.DevAnalyzer.model.GitHubUser;
-import com.toshit.DevAnalyzer.model.Repo;
 import com.toshit.DevAnalyzer.service.GitHubService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ public class GitHubController {
     private final GitHubService gitHubService;
 
     public GitHubController(GitHubService gitHubService) {
-        System.out.println("int github");
+        System.out.println("in github");
         this.gitHubService = gitHubService;
     }
 
@@ -25,7 +24,7 @@ public class GitHubController {
 
     @GetMapping("/{username}/repos")
     public String getRepoStats(@PathVariable String username){
-        List<Repo> repos = gitHubService.getRepo(username);
+        List<GitHubUser.Repo> repos = gitHubService.getRepo(username);
 
         int totalRepos = repos.size();
         int totalStars = gitHubService.getTotalStars(repos);

@@ -12,4 +12,10 @@ public class GitHubUser {
     private int publicRepos;
     private int followers;
 
+    @Data
+    public static class Repo {
+        private String name;
+        private int stargazers_count;
+        private String updated_at;
+    }
 }
