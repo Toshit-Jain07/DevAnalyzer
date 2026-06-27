@@ -18,7 +18,7 @@ public class GitHubService {
     }
 
     public GitHubUser getUser(String username) {
-        System.out.println("here");
+
         String url = "https://api.github.com/users/" + username;
         try {
             return restTemplate.getForObject(url, GitHubUser.class);

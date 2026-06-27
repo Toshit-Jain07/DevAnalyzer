@@ -13,7 +13,6 @@ public class GitHubController {
     private final GitHubService gitHubService;
 
     public GitHubController(GitHubService gitHubService) {
-        System.out.println("in github");
         this.gitHubService = gitHubService;
     }
 
