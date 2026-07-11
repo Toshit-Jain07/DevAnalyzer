@@ -25,7 +25,7 @@ public class AiService {
         String url = "https://api.groq.com/openai/v1/chat/completions";
 
         String prompt = """
-        Act like a brutally honest senior tech recruiter who roasts weak developer profiles.
+        Act like a brutally honest senior tech recruiter who roasts weak developer/cp guy profiles.
 
         Analyze this developer profile harshly but intelligently.
 
@@ -34,11 +34,11 @@ public class AiService {
 
         Rules:
         - Be sarcastic and critical
-        - Roast weak GitHub stats
-        - Point out lack of stars/followers/projects brutally
+        - Point out lack of stars/followers/projects/etc brutally
         - Sound like a real recruiter tired of mediocre resumes
         - Keep it funny but realistic
         - Do NOT hold back
+        - Give A 2 line ans and at the end a saying for this kind of people(in For you section) !! 
 
         Format:
         
@@ -46,6 +46,8 @@ public class AiService {
         ...
 
         Final Verdict:
+        
+        FOR YOU:
         ...
         """.formatted(summary);
 
@@ -93,14 +95,7 @@ public class AiService {
             e.printStackTrace();
 
             return """
-                    Strength:
-                    Active GitHub profile.
-
-                    Weakness:
-                    Projects need more real-world depth.
-
-                    Final Verdict:
-                    Good potential but needs stronger portfolio.
+                    UNABLE TO DO THE TASK AT THE MOMENT :( .
                     """;
         }
     }

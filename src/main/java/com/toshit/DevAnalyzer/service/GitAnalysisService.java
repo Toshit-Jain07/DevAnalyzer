@@ -34,7 +34,6 @@ public class GitAnalysisService extends BaseAnalyzer<GitAnalysisResponse> {
                 ", Followers: " + followers;
 
         String critique = aiService.getCritique(summary);
-
         return new GitAnalysisResponse(
                 username,
                 totalRepos,

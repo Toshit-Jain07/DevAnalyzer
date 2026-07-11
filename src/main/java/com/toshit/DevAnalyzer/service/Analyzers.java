@@ -10,9 +10,10 @@ import java.util.Map;
 public class Analyzers {
     private final Map<String,BaseAnalyzer<?>> analyzerMap= new HashMap<>();
 
-    public Analyzers(GitAnalysisService github,LeetCodeAnalysisService leetcode) {
+    public Analyzers(GitAnalysisService github,LeetCodeAnalysisService leetcode, CFAnalysisService codeforces) {
         analyzerMap.put("github", github);
         analyzerMap.put("leetcode", leetcode);
+        analyzerMap.put("codeforces", codeforces);
     }
 
     public BaseAnalyzer<?> getAnalyzer(String platform){
