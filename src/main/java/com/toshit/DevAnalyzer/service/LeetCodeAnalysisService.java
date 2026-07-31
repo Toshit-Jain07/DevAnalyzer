@@ -22,9 +22,11 @@ public class LeetCodeAnalysisService extends BaseAnalyzer<LeetCodeAnalysisRespon
 
         LeetCodeResponse response =
                 leetCodeService.getProfile(username);
-
         LeetCodeResponse.MatchedUser user =
                 response.getData().getMatchedUser();
+        if(user==null) {
+            throw new RuntimeException("No such user found" + username);
+        }
 
         int easy = 0;
         int medium = 0;

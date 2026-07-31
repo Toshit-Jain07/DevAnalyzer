@@ -1,7 +1,7 @@
 package com.toshit.DevAnalyzer.service;
 
 public abstract class BaseAnalyzer<P> {
-    public AiService aiService;
+    protected final AiService aiService;
     public BaseAnalyzer(AiService aiService){
         this.aiService = aiService;
     }

@@ -1,6 +1,5 @@
-package com.toshit.DevAnalyzer.dto;
+package com.toshit.DevAnalyzer.model;
 
-import com.toshit.DevAnalyzer.model.CFUser;
 import lombok.Data;
 
 import java.util.List;

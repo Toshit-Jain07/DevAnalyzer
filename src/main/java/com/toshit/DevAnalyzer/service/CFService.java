@@ -1,6 +1,6 @@
 package com.toshit.DevAnalyzer.service;
 
-import com.toshit.DevAnalyzer.dto.CFResponse;
+import com.toshit.DevAnalyzer.model.CFResponse;
 import com.toshit.DevAnalyzer.model.CFUser;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
@@ -17,8 +17,10 @@ public class CFService {
     public CFUser getUser(String userName){
         String url = "https://codeforces.com/api/user.info?handles="+userName;
         try {
-            CFResponse resp = new CFResponse();
-            resp = restTemplate.getForObject(url, CFResponse.class);
+            CFResponse resp = restTemplate.getForObject(url, CFResponse.class);
+            if (resp == null || resp.getResult() == null || resp.getResult().isEmpty()) {
+                throw new RuntimeException("CF user not found: " + userName);
+            }
             return resp.getResult().get(0);
 
         } catch (RestClientException e) {
