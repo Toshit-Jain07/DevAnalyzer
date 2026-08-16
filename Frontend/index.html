@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevAnalyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="brand">
+    <h1>DevAnalyzer</h1>
+    <p>Profile intake — github · leetcode · codeforces</p>
+</div>
+
+<div class="panel">
+    <div class="tabs">
+        <button class="tab active" data-platform="github">GitHub</button>
+        <button class="tab" data-platform="leetcode">LeetCode</button>
+        <button class="tab" data-platform="codeforces">Codeforces</button>
+    </div>
+    <div class="row">
+        <input type="text" id="username" placeholder="username" autocomplete="off">
+        <button class="run" id="runBtn">Analyze</button>
+    </div>
+    <div class="status" id="status"></div>
+</div>
+
+<div class="report" id="report" style="display:none;"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
