@@ -10,7 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")                         // apply to every endpoint
-                .allowedOrigins("http://DevAnalyzerBackend.onrender.com")    // whitelist your frontend's origin
+                .allowedOrigins("https://DevAnalyzer.onrender.com")    // whitelist your frontend's origin
                 .allowedMethods("GET")
                 .allowedHeaders("*");
     }

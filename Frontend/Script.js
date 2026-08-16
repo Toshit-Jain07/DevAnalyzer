@@ -91,7 +91,7 @@ async function analyze() {
     statusEl.className = 'status';
     statusEl.textContent = 'Reviewing case file…';
     report.style.display = 'none';
-    const API_BASE = 'http://DevAnalyzerBackend.onrender.com';
+    const API_BASE = 'https://DevAnalyzerBackend.onrender.com';
     try {
 
         const res = await fetch(`${API_BASE}/analyze/${platform}/${encodeURIComponent(username)}`);
