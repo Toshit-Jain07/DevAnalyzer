@@ -1,8 +1,12 @@
-
 ## DevAnalyzer
+
+![CI/CD](https://github.com/Toshit-Jain07/DevAnalyzer/actions/workflows/ci-cd.yml/badge.svg)
+
 DevAnalyzer is an **Ai powered App** which can analyze profile and give a sarcastic analysis based on various datas.
 
 The Analysis feature is available for **Github**,**Leetcode** and **Codeforces**.
+
+🔗 [Live Demo](https://devanalyzer.onrender.com/)
 
 ## Features
 
@@ -12,6 +16,7 @@ The Analysis feature is available for **Github**,**Leetcode** and **Codeforces**
 - AI-generated Sarcastic roast of the profile
 - Dockerized for easy deployment
 - RESTful APIs built with Spring Boot
+- CI/CD with GitHub Actions (test on PR) and Render (auto-deploy on merge to main)
 
 ## Tech Stack
 
@@ -24,6 +29,38 @@ The Analysis feature is available for **Github**,**Leetcode** and **Codeforces**
 - LeetCode GraphQL API
 - Codeforces API
 
+## Architecture
+
+```text
+                    ┌─────────────────┐
+                    │     Client      │
+                    └────────┬────────┘
+                             │
+                             ▼
+                 ┌──────────────────────┐
+                 │   Spring Boot API    │
+                 │     Controllers      │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │      Services        │
+                 └──────────┬───────────┘
+                            │
+             ┌──────────────┼──────────────┐
+             ▼              ▼              ▼
+        GitHub API      LeetCode API   Codeforces API
+             │              │              │
+             └──────────────┼──────────────┘
+                            ▼
+                    ┌──────────────┐
+                    │  AI Service  │
+                    │   Groq API   │
+                    └──────┬───────┘
+                           ▼
+                    Developer Roast
+
+```
 ## API Endpoints
 
 ### GitHub
@@ -45,8 +82,8 @@ GET /analyze/codeforces/{username}
     cd DevAnalyzer
 
 ## Set Variables and Port
-    
-### In 
+
+### In
 **\src\main\resources\application.properties**
 
     groq.api.key= YOUR KEY!!
@@ -54,18 +91,13 @@ GET /analyze/codeforces/{username}
     ./mvnw spring-boot:run
 
 ### with docker
-    
+
     ./mvnw clear package
 
     docker build -t devanalyzer .
 
     docker run -p {port}:8080 devanalyzer -e GROQ_API_KEY=YOURKEY!!
 
-## Author 
+## Author
 
 ### Toshit Jain
-    
-
-
-    
-
