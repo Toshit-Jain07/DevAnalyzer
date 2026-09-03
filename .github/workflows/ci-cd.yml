@@ -22,6 +22,8 @@ jobs:
           distribution: 'temurin'
 
       - name: Run tests
+        env:
+          GROQ_API_KEY: "test-key"
         run: |
           chmod +x mvnw
           ./mvnw test
