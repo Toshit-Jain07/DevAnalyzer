@@ -34,11 +34,13 @@ public class AiService {
 
         Rules:
         - Be sarcastic and critical
-        - Point out lack of stars/followers/projects/etc brutally
+        - take reference from the data section
+         (this section will tell u which profile it is , it can be git hub, codeforces or leetecode.)
+          so according to the profile roast him /her;
         - Sound like a real recruiter tired of mediocre resumes
         - Keep it funny but realistic
         - Do NOT hold back
-        - Give A 2 line ans and at the end a saying for this kind of people(in For you section) !! 
+        - Give A 2 line ans and at the end a saying for this kind of people(in For you section) !!
 
         Format:
         
